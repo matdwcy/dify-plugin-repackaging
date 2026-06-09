@@ -342,7 +342,9 @@ PY
 	echo "After fix requirements:"
 	grep -n "gevent\|greenlet" requirements.txt || true
 	${PIP_CMD} download ${PIP_PLATFORM} --prefer-binary --no-deps -r requirements.txt -d ./wheels \
-	--index-url ${PIP_MIRROR_URL} --trusted-host mirrors.aliyun.com
+	  --index-url ${PIP_MIRROR_URL} --trusted-host mirrors.aliyun.com
+	# ${PIP_CMD} download ${PIP_PLATFORM} --prefer-binary --no-deps -r requirements.txt -d ./wheels \
+	# --index-url ${PIP_MIRROR_URL} --trusted-host mirrors.aliyun.com
 	# ${PIP_CMD} download ${PIP_PLATFORM} --prefer-binary -r requirements.txt -d ./wheels \
 	# 	--index-url ${PIP_MIRROR_URL} --trusted-host mirrors.aliyun.com
 	if [[ $? -ne 0 ]]; then
